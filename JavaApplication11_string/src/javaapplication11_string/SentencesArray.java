@@ -1,14 +1,23 @@
 package javaapplication11_string;
 
+import java.util.Scanner;
+
 public class SentencesArray {
 
-    String arr[];
-    
-    SentencesArray(String[] arr) {
-        this.arr = arr;
+    String arr[] = new String[10];
+    Scanner scanner = new Scanner(System.in);
+
+    SentencesArray() {
     }
-    
-    void decrease(int n) {
+
+    SentencesArray(int n) {
+        for (int i = 0; i < n; i++) {
+            System.out.println("Pls., insert sentence " + (i + 1));
+            arr[i] = scanner.nextLine();
+        }
+    }
+
+    String[] decrease(int n) {
 
         for (int i = 0; i < n; i++) {
             for (int j = i + 1; j < n; j++) {
@@ -19,15 +28,19 @@ public class SentencesArray {
                 }
             }
         }
-        
-        System.out.println("Sentences sorted by length decrease: ");
+
+        System.out.println("Sentences by lenght decrease:");
+        printArray(n);
+        return arr;
+    }
+
+    void printArray(int n) {
         for (int i = 0; i < n; i++) {
             System.out.println(arr[i]);
         }
     }
 
-    
-    void growth(int n) {
+    String[] growth(int n) {
 
         for (int i = 0; i < n; i++) {
             for (int j = i + 1; j < n; j++) {
@@ -38,11 +51,11 @@ public class SentencesArray {
                 }
             }
         }
+
+        System.out.println("Sentences by lenght growth:");
+        printArray(n);
+        return arr;
         
-        System.out.println("Sentences sorted by length growth: ");
-        for (int i = 0; i < n; i++) {
-            System.out.println(arr[i]);
-        }
     }
-    
+
 }
